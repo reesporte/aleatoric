@@ -12,6 +12,10 @@ from jc3000 import Sequence
 import random
 
 
+def silent() -> bool:
+    return random.random() > 0.5
+
+
 def main():
     voices = 3
     s = Sequence(fundamental=432, equal=True, voices=voices)
@@ -49,9 +53,13 @@ def main():
         duration = ((random.randint(1, time_sig_num) / time_sig_den) * 60) / bpm
         song_duration_secs -= duration
 
-        s.add_note(note, duration, random.randint(-1, 1), voice=0)
-        s.add_note(notes_to_harmonies[note]["5"], duration, random.randint(-1, 1), voice=1)
-        s.add_note(notes_to_harmonies[note]["3"], duration, random.randint(-1, 1), voice=2)
+        s.add_note(note, duration, random.randint(-1, 1), voice=0, silent=silent())
+        s.add_note(
+            notes_to_harmonies[note]["5"], duration, random.randint(-1, 1), voice=1, silent=silent()
+        )
+        s.add_note(
+            notes_to_harmonies[note]["3"], duration, random.randint(-1, 1), voice=2, silent=silent()
+        )
 
     s.write_file("a432.wav")
 
