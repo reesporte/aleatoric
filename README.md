@@ -1,5 +1,5 @@
 # algorithmic
 
-music made with [jc300](https://github.com/reesporte/jc3000)
+music made with [jc3000](https://github.com/reesporte/jc3000)
 
 
