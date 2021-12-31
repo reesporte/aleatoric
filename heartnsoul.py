@@ -66,7 +66,7 @@ def main():
     for chord in chords:
         play_chord(s, chord)
 
-    s.write_file("heart_and_soul")
+    s.write_file("heartnsoul")
 
 
 if __name__ == "__main__":
